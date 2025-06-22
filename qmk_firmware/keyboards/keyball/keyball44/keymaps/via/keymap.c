@@ -90,7 +90,6 @@ led_config_t g_led_config = { {
 }, {
   // LED Index to Physical Position
   // {x,y}: x = 224 / (NUMBER_OF_COLS - 1) * COL_POSITION , y =  64 / (NUMBER_OF_ROWS - 1) * ROW_POSITION
-{0,0}	, //0
 {6,1}	, //1
 {6,2}	, //2
 {6,3}	, //3
