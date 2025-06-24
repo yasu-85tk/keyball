@@ -50,7 +50,7 @@ void keyball_on_adjust_layout(keyball_adjust_t v) {
 // LED Configuration
 led_config_t g_led_config = { {
   // LED Index mapping (行列 → LED)
- {     17,   14,     10,     6,     3,    0 },
+  {     17,   14,     10,     6,     3,    0 },
   {     18,   15,     11,     7,     4,    1 },
   {     19,   16,     12,     8,     5,    2 },
   { NO_LED,   13,      9,    27,    28,   29 },
