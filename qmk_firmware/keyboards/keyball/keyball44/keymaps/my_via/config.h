@@ -51,8 +51,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGB_MATRIX_TYPING_HEATMAP_AREA_LIMIT 16
 #define RGB_MATRIX_TYPING_HEATMAP_DECREASE_DELAY_MS 25
 
-#define RGB_MATRIX_KEYPRESSES // reacts to keypresses
-#define ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTIWIDE
 #define ENABLE_RGB_MATRIX_JELLYBEAN_RAINDROPS
 
-#define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_TYPING_HEATMAP// Sets the default mode, if none has been set
+#define RGB_MATRIX_KEYPRESSES // reacts to keypresses
+#define ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTIWIDE
