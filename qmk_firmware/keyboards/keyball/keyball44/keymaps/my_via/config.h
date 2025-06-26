@@ -45,7 +45,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGB_MATRIX_DEFAULT_SAT 255 // Sets the default saturation value, if none has been set
 #define RGB_MATRIX_DEFAULT_VAL 125 // Sets the default brightness value, if none has been set
 
-#define RGB_MATRIX_FRAMEBUFFER_EFFECTS
 #define ENABLE_RGB_MATRIX_TYPING_HEATMAP
 #define RGB_MATRIX_TYPING_HEATMAP_SPREAD 32
 #define RGB_MATRIX_TYPING_HEATMAP_AREA_LIMIT 16
@@ -54,6 +53,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define ENABLE_RGB_MATRIX_JELLYBEAN_RAINDROPS
 
 #define RGB_MATRIX_KEYPRESSES // reacts to keypresses
-#define ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTIWIDE
 
 #define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_TYPING_HEATMAP// Sets the default mode, if none has been set
