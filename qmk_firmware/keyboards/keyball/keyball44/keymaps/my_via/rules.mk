@@ -3,3 +3,5 @@ OLED_ENABLE = yes
 VIA_ENABLE = yes
 
 EXTRAKEY_ENABLE = yes
+
+//RGBLIGHT_ENABLE = noとRGB_MATRIX_ENABLE = yesは親改装のrulesで定義済
