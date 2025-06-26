@@ -50,7 +50,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define RGB_MATRIX_TYPING_HEATMAP_AREA_LIMIT 16
 #define RGB_MATRIX_TYPING_HEATMAP_DECREASE_DELAY_MS 25
 
-#define ENABLE_RGB_MATRIX_JELLYBEAN_RAINDROPS
+#define ENABLE_RGB_MATRIX_PIXEL_RAIN
 
 #define RGB_MATRIX_KEYPRESSES // reacts to keypresses
 
