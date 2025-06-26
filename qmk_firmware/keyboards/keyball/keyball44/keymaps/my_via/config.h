@@ -53,9 +53,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define ENABLE_RGB_MATRIX_RAINDROPS
 //#define ENABLE_RGB_MATRIX_JELLYBEAN_RAINDROPS
-#define ENABLE_RGB_MATRIX_PIXEL_RAIN
 
 #define RGB_MATRIX_KEYPRESSES // reacts to keypresses
 #define ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTIWIDE
+#define RGB_MATRIX_REACTIVE_MULTIWIDE_MAX_RADIUS 1
+
+#define ENABLE_RGB_MATRIX_PIXEL_RAIN
 
 #define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_SOLID_REACTIVE_MULTIWIDE// Sets the default mode, if none has been set
