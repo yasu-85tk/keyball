@@ -62,6 +62,4 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define RGB_MATRIX_KEYREACTIVE_SPREAD 16  // ← デフォルトは 32。小さくすると光る範囲が狭くなる
 //#define RGB_MATRIX_KEYREACTIVE_TIME 1500  // デフォルトは0.5秒くらいでおおよそ500
 
-#define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_CUSTOM
-
-#define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_CUSTOM// Sets the default mode, if none has been set
+#define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_SOLID_COLOR// Sets the default mode, if none has been set
