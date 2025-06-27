@@ -10,7 +10,7 @@
         "driver": "ws2812"
     },
     "layouts": {
-      "LAYOUT_right_ball": {
+      "LAYOUT_no_ball": {
         "layout": [
           { "label": "L00", "x": 0, "y": 0 },
           { "label": "L01", "x": 1, "y": 0 },
@@ -58,6 +58,8 @@
           { "label": "L35", "x": 5, "y": 3 },
           { "label": "R35", "x": 7, "y": 3 },
           { "label": "R34", "x": 8, "y": 3 },
+          { "label": "R33", "x": 9, "y": 3 },
+          { "label": "R32", "x":10, "y": 3 },
           { "label": "R31", "x":11, "y": 3 }
         ]
       }
