@@ -53,13 +53,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 //#define ENABLE_RGB_MATRIX_RAINDROPS
 //#define ENABLE_RGB_MATRIX_JELLYBEAN_RAINDROPS
-#define ENABLE_RGB_MATRIX_PIXEL_RAIN
+//#define ENABLE_RGB_MATRIX_PIXEL_RAIN
 
-#define RGB_MATRIX_KEYPRESSES // reacts to keypresses
-#define ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTIWIDE
+//#define RGB_MATRIX_KEYPRESSES // reacts to keypresses
+//#define ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTIWIDE
 #define ENABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE
 // LED 反応範囲の調整
 //#define RGB_MATRIX_KEYREACTIVE_SPREAD 16  // ← デフォルトは 32。小さくすると光る範囲が狭くなる
-#define RGB_MATRIX_KEYREACTIVE_TIME 1500  // デフォルトは0.5秒くらいでおおよそ500
+//#define RGB_MATRIX_KEYREACTIVE_TIME 1500  // デフォルトは0.5秒くらいでおおよそ500
 
-#define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_SOLID_REACTIVE_MULTIWIDE// Sets the default mode, if none has been set
+#define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_SOLID_REACTIVE_SIMPLE// Sets the default mode, if none has been set
