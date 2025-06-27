@@ -70,33 +70,41 @@ void oledkit_render_info_user(void) {
 }
 #endif
 
-#define COLOR_PURPLE  { .h = 192, .s = 255, .v = 255 }
-#define COLOR_CYAN    { .h = 128, .s = 255, .v = 255 }
+#define NUM_LAYER_LEDS 14 
+const uint8_t layer_leds[NUM_LAYER_LEDS] = {
+    9, 13, 17, 18, 19,   // 左側5個
+    27, 28, 29, 30, 31,  // 中央5個
+    40, 41, 42           // 右側3個
+};
 
 bool rgb_matrix_indicators_user(void) {
-    if (get_highest_layer(layer_state) == 0) {
-        HSV color_purple = COLOR_PURPLE;
-        HSV color_cyan = COLOR_CYAN;
-
-        // 紫にしたいLED番号
-        uint8_t purple_leds[] = {
-             9, 13, 17, 18, 19, 
-            27, 28, 29, 30, 31, 
-            46, 40, 41, 42
-        };
-
-        // 全キーを水色に
-        for (uint8_t i = 0; i < DRIVER_LED_TOTAL; i++) {
-            rgb_matrix_set_color(i, color_cyan.h, color_cyan.s, color_cyan.v);
-        }
-
-        // 紫色のキーを上書き
-        for (uint8_t i = 0; i < sizeof(purple_leds) / sizeof(purple_leds[0]); i++) {
-            uint8_t led = purple_leds[i];
-            if (led < DRIVER_LED_TOTAL) {
-                rgb_matrix_set_color(led, color_purple.h, color_purple.s, color_purple.v);
-            }
-        }
+    HSV hsv;
+    switch (get_highest_layer(layer_state)) {
+        case 1:
+            hsv = (HSV){  22, 255, 255 }; // 赤オレンジ
+            break;
+        case 2:
+            hsv = (HSV){ 106, 255, 255 }; // 緑
+            break;
+        case 3:
+            hsv = (HSV){ 184, 255, 255 }; // 青シアン
+            break;
+        default:
+            hsv = (HSV){ 150, 100, 255 }; // 黄緑（ベース）
+            break;
     }
+
+    // 明度が125を超えていたら125に制限する
+    if (hsv.v > 125) {
+        hsv.v = 125;
+    }
+
+    RGB rgb = hsv_to_rgb(hsv);
+
+    // 対象のLEDに色を適用
+    for (uint8_t i = 0; i < NUM_LAYER_LEDS; i++) {
+        rgb_matrix_set_color(layer_leds[i], rgb.r, rgb.g, rgb.b);
+    }
+
     return true;
 }
