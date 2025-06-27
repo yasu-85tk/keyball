@@ -69,3 +69,30 @@ void oledkit_render_info_user(void) {
     keyball_oled_render_layerinfo();
 }
 #endif
+
+#define COLOR_PURPLE  { .h = 192, .s = 255, .v = 255 }
+#define COLOR_CYAN    { .h = 128, .s = 255, .v = 255 }
+
+bool rgb_matrix_indicators_user(void) {
+    if (get_highest_layer(layer_state) == 0) {
+        uint8_t purple_leds[] = {17, 18, 19, 13, 9, 27, 28, 29, 30, 31, 46, 40, 41, 42};
+        HSV color_purple = COLOR_PURPLE;
+        HSV color_cyan   = COLOR_CYAN;
+
+        // 全LEDを水色にする
+        for (uint8_t i = 0; i < DRIVER_LED_TOTAL; i++) {
+            rgb_matrix_set_color(i, color_cyan.h, color_cyan.s, color_cyan.v);
+        }
+
+        // 指定LEDを紫色にする
+        for (uint8_t i = 0; i < sizeof(purple_leds) / sizeof(purple_leds[0]); i++) {
+            uint8_t led = purple_leds[i];
+            if (led < DRIVER_LED_TOTAL) {
+                rgb_matrix_set_color(led, color_purple.h, color_purple.s, color_purple.v);
+            }
+        }
+    }
+
+    return true;
+}
+
