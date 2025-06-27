@@ -40,10 +40,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define RGB_MATRIX_LED_COUNT 60
 #define DRIVER_LED_TOTAL 60
-//#define RGB_MATRIX_MAXIMUM_BRIGHTNESS 125 // limits maximum brightness of LEDs to 200 out of 255. If not defined maximum brightness is set to 255
-//#define RGB_MATRIX_DEFAULT_HUE 125 // Sets the default hue value, if none has been set
-//#define RGB_MATRIX_DEFAULT_SAT 255 // Sets the default saturation value, if none has been set
-//#define RGB_MATRIX_DEFAULT_VAL 125 // Sets the default brightness value, if none has been set
+#define RGB_MATRIX_MAXIMUM_BRIGHTNESS 125 // limits maximum brightness of LEDs to 200 out of 255. If not defined maximum brightness is set to 255
+#define RGB_MATRIX_DEFAULT_HUE 125 // Sets the default hue value, if none has been set
+#define RGB_MATRIX_DEFAULT_SAT 255 // Sets the default saturation value, if none has been set
+#define RGB_MATRIX_DEFAULT_VAL 125 // Sets the default brightness value, if none has been set
 
 //#define RGB_MATRIX_FRAMEBUFFER_EFFECTS //これは書かなくても良い 
 //#define ENABLE_RGB_MATRIX_TYPING_HEATMAP
@@ -53,13 +53,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 //#define ENABLE_RGB_MATRIX_RAINDROPS
 //#define ENABLE_RGB_MATRIX_JELLYBEAN_RAINDROPS
-//#define ENABLE_RGB_MATRIX_PIXEL_RAIN
+#define ENABLE_RGB_MATRIX_PIXEL_RAIN
 
 //#define RGB_MATRIX_KEYPRESSES // reacts to keypresses
-//#define ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTIWIDE
-//#define ENABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE
+#define ENABLE_RGB_MATRIX_SOLID_REACTIVE_MULTIWIDE
+#define ENABLE_RGB_MATRIX_SOLID_REACTIVE_SIMPLE
 // LED 反応範囲の調整
 //#define RGB_MATRIX_KEYREACTIVE_SPREAD 16  // ← デフォルトは 32。小さくすると光る範囲が狭くなる
 //#define RGB_MATRIX_KEYREACTIVE_TIME 1500  // デフォルトは0.5秒くらいでおおよそ500
 
-//#define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_SOLID_REACTIVE_SIMPLE// Sets the default mode, if none has been set
+#define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_SOLID_REACTIVE_SIMPLE// Sets the default mode, if none has been set
