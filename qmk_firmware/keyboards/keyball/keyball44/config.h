@@ -60,7 +60,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #        define RGBLIGHT_SAT_STEP   17
 #    endif
 #endif
-#define RGB_MATRIX_ENABLE
+
 #define RGB_MATRIX_SPLIT    { 30, 30 }
 #define RGB_MATRIX_MAXIMUM_BRIGHTNESS 120
 #define RGB_DISABLE_WHEN_USB_SUSPENDED
