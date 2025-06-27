@@ -80,7 +80,7 @@ bool rgb_matrix_indicators_user(void) {
 
         // 紫にしたいLED番号
         uint8_t purple_leds[] = {
-            17, 18, 19, 13, 9, 
+             9, 13, 17, 18, 19, 
             27, 28, 29, 30, 31, 
             46, 40, 41, 42
         };
