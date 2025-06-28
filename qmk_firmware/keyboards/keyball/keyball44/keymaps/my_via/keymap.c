@@ -72,36 +72,48 @@ void oledkit_render_info_user(void) {
 
 
 // RGBLayer setting
+#include <string.h>  // memchr用
+
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+    // レイヤーごとの対象LEDと色設定（必要に応じて変更）
+    static const uint8_t layer1_leds[] = {3, 6, 7, 11, 30, 31, 48, 51, 54};
+    static const uint8_t layer2_leds[] = {1, 4, 7, 11, 15, 18, 44, 48, 51, 54, 57};
+    static const uint8_t layer3_leds[] = {31, 47, 48, 49, 50, 51, 52, 53, 54, 55, 58};
+
     for (uint8_t i = led_min; i < led_max; i++) {
         uint8_t layer = get_highest_layer(layer_state);
 
-        if (HAS_FLAGS(g_led_config.flags[i], 0x01)) {
-            // フラグ1用の色分け（レイヤー別）
-            switch (layer) {
-                case 3:
-                    rgb_matrix_set_color(i, 255, 215, 0);    // Gold
-                    break;
-                case 2:
-                    rgb_matrix_set_color(i, 0, 128, 255);    // Blue（目に優しい調整）
-                    break;
-                case 1:
-                    rgb_matrix_set_color(i, 128, 0, 128);  // 紫
-                    break;
-                default:
-                    rgb_matrix_set_color(i, 99, 153, 0);    // Teal（青緑寄り）
-                    break;
+        // レイヤー1～3のとき、対象LEDにだけ色をつけ、他はオフ
+        if (layer == 1) {
+            if (memchr(layer1_leds, i, sizeof(layer1_leds))) {
+                rgb_matrix_set_color(i, 255, 215, 0);  // 色指定
+            } else {
+                rgb_matrix_set_color(i, 0, 0, 0);      // 消灯
             }
-        } else if (HAS_FLAGS(g_led_config.flags[i], 0x04)) {
-            // フラグ4用の色設定
-            rgb_matrix_set_color(i, 0, 178, 178);
+        } else if (layer == 2) {
+            if (memchr(layer2_leds, i, sizeof(layer2_leds))) {
+                rgb_matrix_set_color(i, 0, 128, 255);  // 色指定
+            } else {
+                rgb_matrix_set_color(i, 0, 0, 0);      // 消灯
+            }
+        } else if (layer == 3) {
+            if (memchr(layer3_leds, i, sizeof(layer3_leds))) {
+                rgb_matrix_set_color(i, 128, 0, 128);  // 色指定
+            } else {
+                rgb_matrix_set_color(i, 0, 0, 0);      // 消灯
+            }
+        } else {
+            // レイヤー0（デフォルト）はこれまでの通りフラグで処理
+            if (HAS_FLAGS(g_led_config.flags[i], 0x01)) {
+                rgb_matrix_set_color(i, 99, 153, 0);   // デフォルト緑（ティール寄り）
+            } else if (HAS_FLAGS(g_led_config.flags[i], 0x04)) {
+                rgb_matrix_set_color(i, 0, 178, 178);  // シアン系
+            }
         }
 
-        // Caps Lock 時に上書きする場合（無効化中）
+        // Caps Lock上書き（必要なら有効に）
         // if (host_keyboard_led_state().caps_lock) {
-        //     if (HAS_FLAGS(g_led_config.flags[i], 0x01) || HAS_FLAGS(g_led_config.flags[i], 0x08)) {
-        //         rgb_matrix_set_color(i, 255, 255, 0); // Yellow
-        //     }
+        //     rgb_matrix_set_color(i, 255, 255, 0); // Yellow
         // }
     }
 
