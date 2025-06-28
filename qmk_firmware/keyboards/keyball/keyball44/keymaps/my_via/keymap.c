@@ -80,29 +80,29 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             // フラグ1用の色分け（レイヤー別）
             switch (layer) {
                 case 3:
-                    rgb_matrix_set_color(i, RGB_GOLD);
+                    rgb_matrix_set_color(i, 255, 215, 0);    // Gold
                     break;
                 case 2:
-                    rgb_matrix_set_color(i, RGB_BLUE);
+                    rgb_matrix_set_color(i, 0, 128, 255);    // Blue（目に優しい調整）
                     break;
                 case 1:
-                    rgb_matrix_set_color(i, RGB_PINK);
+                    rgb_matrix_set_color(i, 128, 0, 128);  // 紫
                     break;
                 default:
-                    rgb_matrix_set_color(i, RGB_TEAL);
+                    rgb_matrix_set_color(i, 0, 255, 180);    // Teal（青緑寄り）
                     break;
             }
         } else if (HAS_FLAGS(g_led_config.flags[i], 0x04)) {
-            // フラグ4用の色設定（赤→変更）
-            rgb_matrix_set_color(i, RGB_PURPLE);
+            // フラグ4用の色設定
+            rgb_matrix_set_color(i, 96, 96, 96); // グレー
         }
 
-        // Caps Lock時に上書き
-        //if (host_keyboard_led_state().caps_lock) {
-        //    if (HAS_FLAGS(g_led_config.flags[i], 0x01) || HAS_FLAGS(g_led_config.flags[i], 0x08)) {
-        //        rgb_matrix_set_color(i, RGB_YELOW);
-        //    }
-        //}
+        // Caps Lock 時に上書きする場合（無効化中）
+        // if (host_keyboard_led_state().caps_lock) {
+        //     if (HAS_FLAGS(g_led_config.flags[i], 0x01) || HAS_FLAGS(g_led_config.flags[i], 0x08)) {
+        //         rgb_matrix_set_color(i, 255, 255, 0); // Yellow
+        //     }
+        // }
     }
 
     return false;
