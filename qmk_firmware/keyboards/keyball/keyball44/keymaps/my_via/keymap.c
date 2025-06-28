@@ -73,26 +73,30 @@ void oledkit_render_info_user(void) {
 
 // RGBLayer setting
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+    uint8_t layer = get_highest_layer(layer_state);  // グローバルなlayer_stateから取得
+
     for (uint8_t i = led_min; i < led_max; i++) {
-        switch(get_highest_layer(layer_state)) {
-            case 3: if (HAS_FLAGS(g_led_config.flags[i], 0x01)){
-                        rgb_matrix_set_color(i, RGB_GREEN);
-                    }
-                    break;
-            case 2: if (HAS_FLAGS(g_led_config.flags[i], 0x01)){
-                        rgb_matrix_set_color(i, RGB_PURPLE);
-                    }
-                    break;
-            case 1: if (HAS_FLAGS(g_led_config.flags[i], 0x01)){
-                        rgb_matrix_set_color(i, RGB_YELLOW);
-                    }
-                    break;
-            default: break;
+        if (!HAS_FLAGS(g_led_config.flags[i], 0x01)) continue;
+
+        switch (layer) {
+            case 3:
+                rgb_matrix_set_color(i, RGB_YELLOW);
+                break;
+            case 2:
+                rgb_matrix_set_color(i, RGB_BLUE);
+                break;
+            case 1:
+                rgb_matrix_set_color(i, RGB_PURPLE);
+                break;
+            default:
+                break;
         }
-       　// if (host_keyboard_led_state().caps_lock) {
-         //   if (HAS_FLAGS(g_led_config.flags[i], 0x01))
-         //       rgb_matrix_set_color(i, RGB_YELLOW);
-         // }
+
+        // CapsLockがONのときは上書きで黄色に
+        //  if (host_keyboard_led_state().caps_lock) {
+        //      rgb_matrix_set_color(i, RGB_YELLOW);
+        // }
     }
+
     return false;
 }
