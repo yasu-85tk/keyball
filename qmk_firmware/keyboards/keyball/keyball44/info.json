@@ -75,8 +75,8 @@
      "sat_steps": 8,
      "speed_steps": 8,
         "layout": [
-            {"matrix": [0, 0], "x": 0, "y": 0, "flags": 1}, //18
-            {"matrix": [0, 1], "x": 0, "y": 21, "flags": 1}, //19
+            {"matrix": [0, 0], "x": 0, "y": 0, "flags": 1}, // 18
+            {"matrix": [0, 1], "x": 0, "y": 21, "flags": 1}, // 19
             {"matrix": [0, 2], "x": 0, "y": 42, "flags": 1}, //20
 
             {"matrix": [1, 0], "x": 17, "y": 0, "flags": 4}, //15
