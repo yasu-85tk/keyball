@@ -79,9 +79,6 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         if (!HAS_FLAGS(g_led_config.flags[i], 0x01)) continue;
 
         switch (layer) {
-            case 4:
-                rgb_matrix_set_color(i, RGB_MAGENTA);
-                break;
             case 3:
                 rgb_matrix_set_color(i, RGB_GREEN);
                 break;
@@ -92,13 +89,14 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                 rgb_matrix_set_color(i, RGB_YELLOW);
                 break;
             default:
+                rgb_matrix_set_color(i, RGB_TEAL);
                 break;
         }
 
         // CapsLockがONのときは上書きで黄色に
-        if (host_keyboard_led_state().caps_lock) {
-            rgb_matrix_set_color(i, RGB_YELLOW);
-        }
+        // if (host_keyboard_led_state().caps_lock) {
+        //     rgb_matrix_set_color(i, RGB_YELLOW);
+        // }
     }
 
     return false;
