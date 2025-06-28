@@ -83,17 +83,17 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                     rgb_matrix_set_color(i, RGB_MAGENTA);
                     break;
                 case 2:
-                    rgb_matrix_set_color(i, RGB_BLUE);
+                    rgb_matrix_set_color(i, RGB_AZURE);
                     break;
                 case 1:
-                    rgb_matrix_set_color(i, RGB_GREEN);
+                    rgb_matrix_set_color(i, RGB_CHARTREUSE);
                     break;
                 default:
-                    rgb_matrix_set_color(i, RGB_PURPLE);
+                    rgb_matrix_set_color(i, RGB_SPRINGGREEN);
                     break;
             }
-        } else if (HAS_FLAGS(g_led_config.flags[i], 0x08)) {
-            // フラグ4用の色設定（赤→変更）
+        } else if (HAS_FLAGS(g_led_config.flags[i], 0x04)) {
+            // フラグ4用の色設定
             rgb_matrix_set_color(i, RGB_WHITE);
         }
 
