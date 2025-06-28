@@ -137,13 +137,13 @@
             {"matrix": [11, 2], "x": 221, "y": 42, "flags": 1} 
         ],
      "split_count": [30, 30],
-     "max_brightness": 100,
+     "max_brightness": 80,
      "sleep": true,
      "animations": {
      "alphas_mods": true
       },
      "default": {
-      "val": 100
+      "val": 80
       },
      "led_process_limit": 16
 }
