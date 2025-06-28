@@ -12,7 +12,7 @@ static bool myef_mod_func(effect_params_t* params) {
    hsv.h += rgb_matrix_config.speed / 2;
    RGB rgb3 = rgb_matrix_hsv_to_rgb(hsv);
    hsv.h += rgb_matrix_config.speed / 3;
-   RGB rgb4 rgb_matrix_hsv_to_rgb(hsv);
+   RGB rgb4 = rgb_matrix_hsv_to_rgb(hsv);
 
    for (uint8_t i = led_min; i < led_max; i++) {
       RGB_MATRIX_TEST_LED_FLAGS();
