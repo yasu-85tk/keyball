@@ -80,7 +80,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             // フラグ1用の色分け（レイヤー別）
             switch (layer) {
                 case 3:
-                    rgb_matrix_set_color(i, RGB_MAGENTA);
+                    rgb_matrix_set_color(i, RGB_RGB_TURQUOISE);
                     break;
                 case 2:
                     rgb_matrix_set_color(i, RGB_AZURE);
