@@ -89,8 +89,11 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                 rgb_matrix_set_color(i, RGB_YELLOW);
                 break;
             default:
-                rgb_matrix_set_color(i, RGB_TEAL);
+                rgb_matrix_set_color(i, RGB_MAGENTA);
                 break;
+        }
+        } else if (HAS_FLAGS(g_led_config.flags[i], 0x08)) {
+            rgb_matrix_set_color(i, RGB_WHITE);  // バックライトの色
         }
 
         // CapsLockがONのときは上書きで黄色に
