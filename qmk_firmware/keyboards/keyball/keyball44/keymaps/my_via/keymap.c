@@ -80,21 +80,21 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             // フラグ1用の色分け（レイヤー別）
             switch (layer) {
                 case 3:
-                    rgb_matrix_set_color(i, RGB_SPRINGGREEN);
+                    rgb_matrix_set_color(i, RGB_GOLD);
                     break;
                 case 2:
                     rgb_matrix_set_color(i, RGB_BLUE);
                     break;
                 case 1:
-                    rgb_matrix_set_color(i, RGB_PURPLE);
+                    rgb_matrix_set_color(i, RGB_PINK);
                     break;
                 default:
-                    rgb_matrix_set_color(i, RGB_CHARTREUSE);
+                    rgb_matrix_set_color(i, RGB_TEAL);
                     break;
             }
         } else if (HAS_FLAGS(g_led_config.flags[i], 0x04)) {
             // フラグ4用の色設定（赤→変更）
-            rgb_matrix_set_color(i, RGB_WHITE);
+            rgb_matrix_set_color(i, RGB_PURPLE);
         }
 
         // Caps Lock時に上書き
