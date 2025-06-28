@@ -23,7 +23,7 @@ static bool myef_mod_func(effect_params_t* params) {
       } else if ((i % 13) == 0 || (i % 13) == 12 || (i>=40 && i<=50)){
           rgb_matrix_set_color(i, rgb2.r, rgb2.g, rgb2.b);
       } else {
-          rgb_matrix_set_color(i, rgbl.r, rgbl.g, rgbl.b);
+          rgb_matrix_set_color(i, rgb1.r, rgb1.g, rgb1.b);
       }
    }
    return rgb_matrix_check_finished_leds(led_max);
