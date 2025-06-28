@@ -73,36 +73,31 @@ void oledkit_render_info_user(void) {
 
 // RGBLayer setting
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+    uint8_t layer = get_highest_layer(layer_state); // レイヤー状態はループ外で取得
+
     for (uint8_t i = led_min; i < led_max; i++) {
-        uint8_t layer = get_highest_layer(layer_state); // グローバルなlayer_stateから取得
+        RGB rgb = {0, 0, 0}; // 初期化：消灯もしくは任意のデフォルト色
 
         if (HAS_FLAGS(g_led_config.flags[i], 0x01)) {
-            // フラグ1用の色分け（レイヤー別）
+            // フラグ1用の色（レイヤーごとに色分け）
             switch (layer) {
-                case 3:
-                    rgb_matrix_set_color(i, RGB_TURQUOISE);
-                    break;
-                case 2:
-                    rgb_matrix_set_color(i, RGB_AZURE);
-                    break;
-                case 1:
-                    rgb_matrix_set_color(i, RGB_CHARTREUSE);
-                    break;
-                default:
-                    rgb_matrix_set_color(i, RGB_SPRINGGREEN);
-                    break;
+                case 3: rgb = (RGB){64, 224, 208}; break; // TURQUOISE
+                case 2: rgb = (RGB){0, 127, 255};  break; // AZURE
+                case 1: rgb = (RGB){127, 255, 0};  break; // CHARTREUSE
+                default: rgb = (RGB){0, 255, 127}; break; // SPRINGGREEN
             }
         } else if (HAS_FLAGS(g_led_config.flags[i], 0x04)) {
-            // フラグ4用の色設定
-            rgb_matrix_set_color(i, RGB_WHITE);
+            // フラグ4の色
+            rgb = (RGB){255, 255, 255}; // WHITE
         }
 
-        // Caps Lock時に上書き
-         // if (host_keyboard_led_state().caps_lock) {
-         //     if (HAS_FLAGS(g_led_config.flags[i], 0x01) || HAS_FLAGS(g_led_config.flags[i], 0x08)) {
-         //         rgb_matrix_set_color(i, RGB_YELLOW);
-         //    }
+        // Caps Lock ON なら上書き（あれば有効化）
+        // if (host_keyboard_led_state().caps_lock &&
+        //     (HAS_FLAGS(g_led_config.flags[i], 0x01) || HAS_FLAGS(g_led_config.flags[i], 0x04))) {
+        //     rgb = (RGB){255, 255, 0}; // YELLOW
         // }
+
+        rgb_matrix_set_color(i, rgb.r, rgb.g, rgb.b);
     }
 
     return false;
