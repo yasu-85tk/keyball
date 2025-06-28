@@ -89,12 +89,12 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                     rgb_matrix_set_color(i, 128, 0, 128);  // 紫
                     break;
                 default:
-                    rgb_matrix_set_color(i, 0, 255, 180);    // Teal（青緑寄り）
+                    rgb_matrix_set_color(i, 99, 153, 0);    // Teal（青緑寄り）
                     break;
             }
         } else if (HAS_FLAGS(g_led_config.flags[i], 0x04)) {
             // フラグ4用の色設定
-            rgb_matrix_set_color(i, 96, 96, 96); // グレー
+            rgb_matrix_set_color(i, 0, 178, 178);
         }
 
         // Caps Lock 時に上書きする場合（無効化中）
