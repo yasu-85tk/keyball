@@ -110,7 +110,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             }
         } else if (layer == 2) {
             if (memchr(layer2_leds_col1, i, sizeof(layer2_leds_col1))) {
-                rgb_matrix_set_color(i, 0, 0, 205, 190);  // カラー1　数字・記号
+                rgb_matrix_set_color(i, 0, 205, 190);  // カラー1　数字・記号
                 colored = true;
             } else if (memchr(layer2_leds_col2, i, sizeof(layer2_leds_col2))) {
                 rgb_matrix_set_color(i, 224, 0, 66);  // カラー2　Fキー
