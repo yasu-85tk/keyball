@@ -110,18 +110,18 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             }
         } else if (layer == 2) {
             if (memchr(layer2_leds_col1, i, sizeof(layer2_leds_col1))) {
-                rgb_matrix_set_color(i, 0, 128, 255);  // カラー1　数字・記号
+                rgb_matrix_set_color(i, 0, 0, 205, 190);  // カラー1　数字・記号
                 colored = true;
             } else if (memchr(layer2_leds_col2, i, sizeof(layer2_leds_col2))) {
-                rgb_matrix_set_color(i, 228, 0, 127);  // カラー2　Fキー
+                rgb_matrix_set_color(i, 224, 0, 66);  // カラー2　Fキー
                 colored = true;
             } else if (memchr(layer2_leds_col3, i, sizeof(layer2_leds_col3))) {
-                rgb_matrix_set_color(i, 0, 180, 0);  // カラー3　Excelシート移動
+                rgb_matrix_set_color(i, 0, 199, 60);  // カラー3　Excelシート移動
                 colored = true;
             }
         } else if (layer == 3) {
             if (memchr(layer3_leds_col1, i, sizeof(layer3_leds_col1))) {
-                rgb_matrix_set_color(i, 126, 30, 139);  // カラー1　テンキー数字
+                rgb_matrix_set_color(i, 106, 10, 119);  // カラー1　テンキー数字
                 colored = true;
             } else if (memchr(layer3_leds_col2, i, sizeof(layer3_leds_col2))) {
                 rgb_matrix_set_color(i, 255, 220, 0);  // カラー2 記号
