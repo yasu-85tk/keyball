@@ -94,27 +94,39 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         bool colored = false;
 
         if (layer == 1) {
-            if (memchr(layer1_leds_purple, i, sizeof(layer1_leds_purple))) {
-                rgb_matrix_set_color(i, 128, 0, 128);  // 紫
+            if (memchr(layer1_leds_col1, i, sizeof(layer1_leds_col1))) {
+                rgb_matrix_set_color(i, 128, 0, 128);  // カラー1
                 colored = true;
-            } else if (memchr(layer1_leds_pink, i, sizeof(layer1_leds_pink))) {
-                rgb_matrix_set_color(i, 255, 105, 180);  // ピンク
+            } else if (memchr(layer1_leds_col2, i, sizeof(layer1_leds_col2))) {
+                rgb_matrix_set_color(i, 255, 105, 180);  // カラー2
+                colored = true;
+            } else if (memchr(layer1_leds_col3, i, sizeof(layer1_leds_col3))) {
+                rgb_matrix_set_color(i, 0, 105, 180);  // カラー3
                 colored = true;
             }
         } else if (layer == 2) {
-            if (memchr(layer2_leds_blue, i, sizeof(layer2_leds_blue))) {
-                rgb_matrix_set_color(i, 0, 128, 255);  // 青
+            if (memchr(layer2_leds_col1, i, sizeof(layer2_leds_col1))) {
+                rgb_matrix_set_color(i, 0, 128, 255);  // カラー1
                 colored = true;
-            } else if (memchr(layer2_leds_cyan, i, sizeof(layer2_leds_cyan))) {
-                rgb_matrix_set_color(i, 0, 255, 255);  // シアン
+            } else if (memchr(layer2_leds_col2, i, sizeof(layer2_leds_col2))) {
+                rgb_matrix_set_color(i, 0, 125, 150);  // カラー2
+                colored = true;
+            } else if (memchr(layer2_leds_col3, i, sizeof(layer2_leds_col3))) {
+                rgb_matrix_set_color(i, 0, 160, 0);  // カラー3
                 colored = true;
             }
         } else if (layer == 3) {
-            if (memchr(layer3_leds_gold, i, sizeof(layer3_leds_gold))) {
-                rgb_matrix_set_color(i, 255, 215, 0);  // ゴールド
+            if (memchr(layer3_leds_col1, i, sizeof(layer3_leds_col1))) {
+                rgb_matrix_set_color(i, 255, 215, 0);  // カラー1
                 colored = true;
-            } else if (memchr(layer3_leds_white, i, sizeof(layer3_leds_white))) {
-                rgb_matrix_set_color(i, 255, 255, 255);  // 白（注意: 電流高め）
+            } else if (memchr(layer3_leds_col2, i, sizeof(layer3_leds_col2))) {
+                rgb_matrix_set_color(i, 125, 125, 0);  // カラー2
+                colored = true;
+            } else if (memchr(layer3_leds_col3, i, sizeof(layer3_leds_col3))) {
+                rgb_matrix_set_color(i, 0, 125, 0);  // カラー3
+                colored = true;
+            } else if (memchr(layer3_leds_col4, i, sizeof(layer3_leds_col4))) {
+                rgb_matrix_set_color(i, 0, 125, 125);  // カラー4
                 colored = true;
             }
         }
