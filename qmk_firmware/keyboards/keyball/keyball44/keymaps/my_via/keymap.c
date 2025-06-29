@@ -117,16 +117,16 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             }
         } else if (layer == 3) {
             if (memchr(layer3_leds_col1, i, sizeof(layer3_leds_col1))) {
-                rgb_matrix_set_color(i, 255, 215, 0);  // カラー1
+                rgb_matrix_set_color(i, 128, 0, 150);  // カラー1
                 colored = true;
             } else if (memchr(layer3_leds_col2, i, sizeof(layer3_leds_col2))) {
-                rgb_matrix_set_color(i, 125, 125, 0);  // カラー2
+                rgb_matrix_set_color(i, 180, 180, 0);  // カラー2
                 colored = true;
             } else if (memchr(layer3_leds_col3, i, sizeof(layer3_leds_col3))) {
-                rgb_matrix_set_color(i, 0, 125, 0);  // カラー3
+                rgb_matrix_set_color(i, 0, 180, 145);  // カラー3
                 colored = true;
             } else if (memchr(layer3_leds_col4, i, sizeof(layer3_leds_col4))) {
-                rgb_matrix_set_color(i, 0, 125, 125);  // カラー4
+                rgb_matrix_set_color(i, 180, 0, 0);  // カラー4
                 colored = true;
             }
         }
