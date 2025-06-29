@@ -104,7 +104,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             } else if (memchr(layer1_leds_col3, i, sizeof(layer1_leds_col3))) {
                 rgb_matrix_set_color(i, 125, 68, 39);  // カラー3　マウス数値関連とF2・FN
                 colored = true;
-            }else if (memchr(layer1_leds_col4, i, sizeof(layer1_leds_col3))) {
+            }else if (memchr(layer1_leds_col4, i, sizeof(layer1_leds_col4))) {
                 rgb_matrix_set_color(i, 46, 70, 0);  // カラー4　拡大縮小
                 colored = true;
             }
