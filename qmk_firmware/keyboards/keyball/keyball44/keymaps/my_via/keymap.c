@@ -77,8 +77,8 @@ void oledkit_render_info_user(void) {
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     static const uint8_t layer1_leds_col1[] = {4, 6, 7, 11, 28, 30, 31, 48, 51, 54};
     static const uint8_t layer1_leds_col2[]   = {5, 8, 14, 15, 16, 44, 45, 55, 57, 58};
-    static const uint8_t layer1_leds_col3[]   = {10, 40, 46, 47, 50, 53, 56,};
-    static const uint8_t layer1_leds_col4[]   = {0, 1, 2};
+    static const uint8_t layer1_leds_col3[]   = {40, 46, 47, 50, 53, 56,};
+    static const uint8_t layer1_leds_col4[]   = {0, 1, 2, 10, 14};
   
     static const uint8_t layer2_leds_col1[]   = {1, 4, 7, 11, 15, 31, 44, 48, 51, 54, 55, 57, 58};
     static const uint8_t layer2_leds_col2[]   = {0, 3, 6, 10, 14, 40, 41, 43, 47, 50, 53, 56};
