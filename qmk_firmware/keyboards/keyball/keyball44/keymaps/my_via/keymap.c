@@ -75,45 +75,64 @@ void oledkit_render_info_user(void) {
 #include <string.h>  // memchr用
 
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
-    // レイヤーごとの対象LEDと色設定（必要に応じて変更）
-    static const uint8_t layer1_leds[] = {4, 6, 7, 11, 28, 30, 31, 46, 48, 51, 54};
-    static const uint8_t layer2_leds[] = {1, 4, 7, 11, 15, 31, 44, 48, 51, 54, 55, 57, 58};
-    static const uint8_t layer3_leds[] = {29, 31, 47, 48, 49, 50, 51, 52, 53, 54, 55, 58};
+    static const uint8_t layer1_leds_color1[] = {4, 6, 7, 11, 28, 30, 31, 48, 51, 54};
+    static const uint8_t layer1_leds_color2[]   = {0, 1, 2, 5, 8, 14, 15, 16, 44, 45, 55, 57, 58};
+    static const uint8_t layer1_leds_color3[]   = {10, 40, 46, 47, 50, 53, 57,};
+  
+    static const uint8_t layer2_leds_blue[]   = {1, 4, 7, 11, 15, 31, 44, 48, 51, 54, 55, 57, 58};
+    static const uint8_t layer2_leds_cyan[]   = {12, 13};
+
+    static const uint8_t layer3_leds_gold[]   = {29, 31, 47, 48, 49, 50, 51, 52, 53, 54, 55, 58};
+    static const uint8_t layer3_leds_white[]  = {15, 16};
+
+    uint8_t layer = get_highest_layer(layer_state);
 
     for (uint8_t i = led_min; i < led_max; i++) {
-        uint8_t layer = get_highest_layer(layer_state);
+        bool colored = false;
 
-        // レイヤー1～3のとき、対象LEDにだけ色をつけ、他はオフ
         if (layer == 1) {
-            if (memchr(layer1_leds, i, sizeof(layer1_leds))) {
-                rgb_matrix_set_color(i, 255, 255, 0);  // 色指定
-            } else {
-                rgb_matrix_set_color(i, 0, 0, 0);      // 消灯
+            if (memchr(layer1_leds_purple, i, sizeof(layer1_leds_purple))) {
+                rgb_matrix_set_color(i, 128, 0, 128);  // 紫
+                colored = true;
+            } else if (memchr(layer1_leds_pink, i, sizeof(layer1_leds_pink))) {
+                rgb_matrix_set_color(i, 255, 105, 180);  // ピンク
+                colored = true;
             }
         } else if (layer == 2) {
-            if (memchr(layer2_leds, i, sizeof(layer2_leds))) {
-                rgb_matrix_set_color(i, 0, 128, 255);  // 色指定
-            } else {
-                rgb_matrix_set_color(i, 0, 0, 0);      // 消灯
+            if (memchr(layer2_leds_blue, i, sizeof(layer2_leds_blue))) {
+                rgb_matrix_set_color(i, 0, 128, 255);  // 青
+                colored = true;
+            } else if (memchr(layer2_leds_cyan, i, sizeof(layer2_leds_cyan))) {
+                rgb_matrix_set_color(i, 0, 255, 255);  // シアン
+                colored = true;
             }
         } else if (layer == 3) {
-            if (memchr(layer3_leds, i, sizeof(layer3_leds))) {
-                rgb_matrix_set_color(i, 128, 0, 128);  // 色指定
-            } else {
-                rgb_matrix_set_color(i, 0, 0, 0);      // 消灯
-            }
-        } else {
-            // レイヤー0（デフォルト）はこれまでの通りフラグで処理
-            if (HAS_FLAGS(g_led_config.flags[i], 0x01)) {
-                rgb_matrix_set_color(i, 99, 153, 0);   // デフォルト緑（ティール寄り）
-            } else if (HAS_FLAGS(g_led_config.flags[i], 0x04)) {
-                rgb_matrix_set_color(i, 0, 178, 178);  // シアン系
+            if (memchr(layer3_leds_gold, i, sizeof(layer3_leds_gold))) {
+                rgb_matrix_set_color(i, 255, 215, 0);  // ゴールド
+                colored = true;
+            } else if (memchr(layer3_leds_white, i, sizeof(layer3_leds_white))) {
+                rgb_matrix_set_color(i, 255, 255, 255);  // 白（注意: 電流高め）
+                colored = true;
             }
         }
 
-        // Caps Lock上書き（必要なら有効に）
+        if (!colored) {
+            // レイヤー1〜3の時はその他を消灯
+            if (layer >= 1 && layer <= 3) {
+                rgb_matrix_set_color(i, 0, 0, 0);
+            } else {
+                // デフォルトレイヤー用処理（元のまま）
+                if (HAS_FLAGS(g_led_config.flags[i], 0x01)) {
+                    rgb_matrix_set_color(i, 99, 153, 0);   // Teal
+                } else if (HAS_FLAGS(g_led_config.flags[i], 0x04)) {
+                    rgb_matrix_set_color(i, 0, 178, 178); // Cyan
+                }
+            }
+        }
+
+        // Caps Lock 上書き処理（使いたければ有効に）
         // if (host_keyboard_led_state().caps_lock) {
-        //     rgb_matrix_set_color(i, 255, 255, 0); // Yellow
+        //     rgb_matrix_set_color(i, 255, 255, 0);  // Yellow
         // }
     }
 
