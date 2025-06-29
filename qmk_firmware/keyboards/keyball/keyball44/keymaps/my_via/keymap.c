@@ -77,7 +77,7 @@ void oledkit_render_info_user(void) {
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     static const uint8_t layer1_leds_col1[] = {4, 6, 7, 11, 28, 30, 31, 48, 51, 54};
     static const uint8_t layer1_leds_col2[]   = {0, 1, 2, 5, 8, 14, 15, 16, 44, 45, 55, 57, 58};
-    static const uint8_t layer1_leds_col3[]   = {10, 40, 46, 47, 50, 53, 57,};
+    static const uint8_t layer1_leds_col3[]   = {10, 40, 46, 47, 50, 53, 56,};
   
     static const uint8_t layer2_leds_col1[]   = {1, 4, 7, 11, 15, 31, 44, 48, 51, 54, 55, 57, 58};
     static const uint8_t layer2_leds_col2[]   = {0, 3, 6, 10, 14, 40, 41, 43, 47, 50, 53, 56};
@@ -95,38 +95,38 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
 
         if (layer == 1) {
             if (memchr(layer1_leds_col1, i, sizeof(layer1_leds_col1))) {
-                rgb_matrix_set_color(i, 128, 0, 128);  // カラー1
+                rgb_matrix_set_color(i, 180, 180, 0);  // カラー1　矢印・マウス
                 colored = true;
             } else if (memchr(layer1_leds_col2, i, sizeof(layer1_leds_col2))) {
-                rgb_matrix_set_color(i, 255, 105, 180);  // カラー2
+                rgb_matrix_set_color(i, 0, 180, 0);  // カラー2　ブラウザ操作系
                 colored = true;
             } else if (memchr(layer1_leds_col3, i, sizeof(layer1_leds_col3))) {
-                rgb_matrix_set_color(i, 0, 105, 180);  // カラー3
+                rgb_matrix_set_color(i, 228, 0, 127);  // カラー3　マウス数値関連とF2・FN
                 colored = true;
             }
         } else if (layer == 2) {
             if (memchr(layer2_leds_col1, i, sizeof(layer2_leds_col1))) {
-                rgb_matrix_set_color(i, 0, 128, 255);  // カラー1
+                rgb_matrix_set_color(i, 0, 128, 255);  // カラー1　数字・記号
                 colored = true;
             } else if (memchr(layer2_leds_col2, i, sizeof(layer2_leds_col2))) {
-                rgb_matrix_set_color(i, 0, 125, 150);  // カラー2
+                rgb_matrix_set_color(i, 228, 0, 127);  // カラー2　Fキー
                 colored = true;
             } else if (memchr(layer2_leds_col3, i, sizeof(layer2_leds_col3))) {
-                rgb_matrix_set_color(i, 0, 160, 0);  // カラー3
+                rgb_matrix_set_color(i, 0, 180, 0);  // カラー3　Excelシート移動
                 colored = true;
             }
         } else if (layer == 3) {
             if (memchr(layer3_leds_col1, i, sizeof(layer3_leds_col1))) {
-                rgb_matrix_set_color(i, 128, 0, 150);  // カラー1
+                rgb_matrix_set_color(i, 128, 0, 150);  // カラー1　テンキー数字
                 colored = true;
             } else if (memchr(layer3_leds_col2, i, sizeof(layer3_leds_col2))) {
-                rgb_matrix_set_color(i, 180, 180, 0);  // カラー2
+                rgb_matrix_set_color(i, 180, 180, 0);  // カラー2 記号
                 colored = true;
             } else if (memchr(layer3_leds_col3, i, sizeof(layer3_leds_col3))) {
-                rgb_matrix_set_color(i, 0, 180, 145);  // カラー3
+                rgb_matrix_set_color(i, 0, 180, 145);  // カラー3 Audio vol
                 colored = true;
             } else if (memchr(layer3_leds_col4, i, sizeof(layer3_leds_col4))) {
-                rgb_matrix_set_color(i, 180, 0, 0);  // カラー4
+                rgb_matrix_set_color(i, 180, 0, 0);  // カラー4　RGB Toggle
                 colored = true;
             }
         }
