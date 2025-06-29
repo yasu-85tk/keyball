@@ -99,13 +99,13 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
                 rgb_matrix_set_color(i, 245, 190, 0);  // カラー1　矢印・マウス
                 colored = true;
             } else if (memchr(layer1_leds_col2, i, sizeof(layer1_leds_col2))) {
-                rgb_matrix_set_color(i, 65, 199, 94);  // カラー2　ブラウザ操作系
+                rgb_matrix_set_color(i, 0, 199, 94);  // カラー2　ブラウザ操作系
                 colored = true;
             } else if (memchr(layer1_leds_col3, i, sizeof(layer1_leds_col3))) {
-                rgb_matrix_set_color(i, 224, 84, 66);  // カラー3　マウス数値関連とF2・FN
+                rgb_matrix_set_color(i, 224, 0, 66);  // カラー3　マウス数値関連とF2・FN
                 colored = true;
             }else if (memchr(layer1_leds_col4, i, sizeof(layer1_leds_col4))) {
-                rgb_matrix_set_color(i, 74, 205, 190);  // カラー4　拡大縮小
+                rgb_matrix_set_color(i, 0, 205, 190);  // カラー4　拡大縮小
                 colored = true;
             }
         } else if (layer == 2) {
@@ -142,9 +142,9 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             } else {
                 // デフォルトレイヤー用処理（元のまま）
                 if (HAS_FLAGS(g_led_config.flags[i], 0x01)) {
-                    rgb_matrix_set_color(i, 69, 201, 192);   // 外枠キー
+                    rgb_matrix_set_color(i, 0, 128, 255);   // 外枠キー
                 } else if (HAS_FLAGS(g_led_config.flags[i], 0x04)) {
-                    rgb_matrix_set_color(i, 62, 70, 75); // メインキー
+                    rgb_matrix_set_color(i, 62, 62, 62); // メインキー
                 }
             }
         }
