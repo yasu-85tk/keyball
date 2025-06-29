@@ -121,16 +121,16 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             }
         } else if (layer == 3) {
             if (memchr(layer3_leds_col1, i, sizeof(layer3_leds_col1))) {
-                rgb_matrix_set_color(i, 126, 0, 139);  // カラー1　テンキー数字
+                rgb_matrix_set_color(i, 126, 30, 139);  // カラー1　テンキー数字
                 colored = true;
             } else if (memchr(layer3_leds_col2, i, sizeof(layer3_leds_col2))) {
-                rgb_matrix_set_color(i, 242, 192, 37);  // カラー2 記号
+                rgb_matrix_set_color(i, 255, 220, 0);  // カラー2 記号
                 colored = true;
             } else if (memchr(layer3_leds_col3, i, sizeof(layer3_leds_col3))) {
-                rgb_matrix_set_color(i, 123, 177, 62);  // カラー3 Audio vol
+                rgb_matrix_set_color(i, 0, 199, 60);  // カラー3 Audio vol
                 colored = true;
             } else if (memchr(layer3_leds_col4, i, sizeof(layer3_leds_col4))) {
-                rgb_matrix_set_color(i, 209, 53, 37);  // カラー4　RGB Toggle
+                rgb_matrix_set_color(i, 224, 0, 66);  // カラー4　RGB Toggle
                 colored = true;
             }
         }
@@ -140,11 +140,11 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             if (layer >= 1 && layer <= 3) {
                 rgb_matrix_set_color(i, 0, 0, 0);
             } else {
-                // デフォルトレイヤー用処理（元のまま）
+                // デフォルトレイヤー用処理
                 if (HAS_FLAGS(g_led_config.flags[i], 0x01)) {
-                    rgb_matrix_set_color(i, 238, 120, 0);   // 外枠キー
+                    rgb_matrix_set_color(i, 80, 80, 80);   // 外枠キー
                 } else if (HAS_FLAGS(g_led_config.flags[i], 0x04)) {
-                    rgb_matrix_set_color(i, 0, 187, 112); // メインキー
+                    rgb_matrix_set_color(i, 0, 199, 60); // メインキー
                 }
             }
         }
