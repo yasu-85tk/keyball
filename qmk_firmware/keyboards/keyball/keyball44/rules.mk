@@ -29,7 +29,7 @@ QUANTUM_LIB_SRC += spi_master.c # Optical sensor use SPI to communicate
 MOUSEKEY_ENABLE = no
 
 # Enabled only one of RGBLIGHT and RGB_MATRIX if necessary.
-RGBLIGHT_ENABLE = no        # Enable RGBLIGHT // デフォルトはyes
+RGBLIGHT_ENABLE = no        # Enable RGBLIGHT // デフォルトはno
 RGB_MATRIX_ENABLE = yes      # Enable RGB_MATRIX (not work yet) // デフォルトはno
 RGB_MATRIX_DRIVER = ws2812
 
