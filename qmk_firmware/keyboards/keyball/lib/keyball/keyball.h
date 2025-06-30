@@ -116,7 +116,7 @@ enum keyball_keycodes {
     AML_D50  = QK_KB_12, // Decrement automatic mouse layer timeout
 
    //自分で追加したもの
-   LED_TOGGLE = QK_KB_16 // レイヤー0のLED色指定を解除し、RGB_MATRIXのアニメーションを表示させる
+   LED_TOG = QK_KB_16 // レイヤー0のLED色指定を解除し、RGB_MATRIXのアニメーションを表示させる
 
     // User customizable 32 keycodes.
     KEYBALL_SAFE_RANGE = QK_USER_0,
