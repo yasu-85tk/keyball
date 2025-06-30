@@ -40,8 +40,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define SPLIT_TRANSPORT_MIRROR
 
-#define MATRIX_MASKED
-
 #define RGB_MATRIX_LED_COUNT 60 // RGB_MATRIX使用時に必要な定義
 //#define DRIVER_LED_TOTAL 60 // RGBLIGHT使用時に必要な定義
 
