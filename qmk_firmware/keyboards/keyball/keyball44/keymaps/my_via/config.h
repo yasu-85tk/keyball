@@ -42,10 +42,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define MATRIX_MASKED
 
-#define RGB_MATRIX_LED_COUNT 60
-#define DRIVER_LED_TOTAL 60
-
-#define ENABLE_RGB_MATRIX_ALPHAS_MODS
+#define RGB_MATRIX_LED_COUNT 60 // RGB_MATRIX使用時に必要な定義
+//#define DRIVER_LED_TOTAL 60 // RGBLIGHT使用時に必要な定義
 
 //#define RGB_MATRIX_MAXIMUM_BRIGHTNESS 125 // limits maximum brightness of LEDs to 200 out of 255. If not defined maximum brightness is set to 255
 //#define RGB_MATRIX_DEFAULT_HUE 125 // Sets the default hue value, if none has been set
