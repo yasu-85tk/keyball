@@ -779,3 +779,18 @@ uint8_t mod_config(uint8_t mod) {
 }
 
 #endif
+
+// 追加したカスタムキーLED_TOGに関する定義
+
+bool g_use_custom_layer0_leds = true; // 初期値はON
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LED_TOG:
+            if (record->event.pressed) {
+                g_use_custom_layer0_leds = !g_use_custom_layer0_leds;
+            }
+            return false;
+    }
+    return true;
+}
