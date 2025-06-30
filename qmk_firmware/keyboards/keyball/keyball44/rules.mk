@@ -9,7 +9,7 @@ LTO_ENABLE = yes
 
 # Build Options
 BOOTMAGIC_ENABLE = no       # Enable Bootmagic Lite
-EXTRAKEY_ENABLE = no        # Audio control and System control
+EXTRAKEY_ENABLE = yes        # Audio control and System control // デフォルトはno
 CONSOLE_ENABLE = no         # Console for debug
 COMMAND_ENABLE = no         # Commands for debug and configuration
 NKRO_ENABLE = no            # Enable N-Key Rollover
@@ -29,8 +29,8 @@ QUANTUM_LIB_SRC += spi_master.c # Optical sensor use SPI to communicate
 MOUSEKEY_ENABLE = no
 
 # Enabled only one of RGBLIGHT and RGB_MATRIX if necessary.
-RGBLIGHT_ENABLE = no        # Enable RGBLIGHT
-RGB_MATRIX_ENABLE = yes      # Enable RGB_MATRIX (not work yet)
+RGBLIGHT_ENABLE = no        # Enable RGBLIGHT // デフォルトはyes
+RGB_MATRIX_ENABLE = yes      # Enable RGB_MATRIX (not work yet) // デフォルトはno
 RGB_MATRIX_DRIVER = ws2812
 
 # Do not enable SLEEP_LED_ENABLE. it uses the same timer as BACKLIGHT_ENABLE
