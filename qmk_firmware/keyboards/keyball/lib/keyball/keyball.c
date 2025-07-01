@@ -826,12 +826,18 @@ void keyboard_post_init_user(void) {
 }
 
 // キー入力処理などでトグル＆送信
+#include "split_util.h"  // is_keyboard_master() を使うのに必要！
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LED_TOG:
             if (record->event.pressed) {
                 g_use_custom_layer0_leds = !g_use_custom_layer0_leds;
-                send_custom_led_state();  // ← ここで送信
+
+                // ↓ここがポイント：親機だけが送信する
+                if (is_keyboard_master()) {
+                    send_custom_led_state();
+                }
             }
             return false;
     }
