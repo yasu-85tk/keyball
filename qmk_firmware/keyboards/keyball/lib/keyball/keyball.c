@@ -782,14 +782,50 @@ uint8_t mod_config(uint8_t mod) {
 
 // 追加したカスタムキーLED_TOGに関する定義
 
-// bool g_use_custom_layer0_leds = true; // true=ONだと自作LED処理が有効 // keymap.cと重複のためコメントアウト
-extern bool g_use_custom_layer0_leds; //ひとつ上コードの代わりに、宣言だけを行い、外部に定義がある変数であることを示す
+//  // bool g_use_custom_layer0_leds = true; // true=ONだとカスタムLED処理が有効、false=OFF // keymap.cと重複のためコメントアウト
+//  extern bool g_use_custom_layer0_leds; //ひとつ上コードの代わりに、宣言だけを行い、外部に定義がある変数であることを示す
 
+//  bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+//      switch (keycode) {
+//          case LED_TOG:
+//             if (record->event.pressed) {
+//                 g_use_custom_layer0_leds = !g_use_custom_layer0_leds;
+//             }
+//             return false;
+//     }
+//     return true;
+// }
+
+#include "transactions.h"
+#include "keyball.h"  // 必要なら自分のヘッダも
+
+// 共有したいグローバル変数
+bool g_use_custom_layer0_leds = false;
+
+// スレーブ側で受信したときの処理
+void receive_custom_led_state(const void* data, uint8_t length) {
+    if (length == sizeof(bool)) {
+        g_use_custom_layer0_leds = *(bool*)data;
+    }
+}
+
+// 状態をスレーブ側に送信
+void send_custom_led_state(void) {
+    transaction_rpc_send(0x01, &g_use_custom_layer0_leds, sizeof(g_use_custom_layer0_leds));
+}
+
+// RPC受信処理の登録
+void keyboard_post_init_user(void) {
+    transaction_register_rpc(0x01, receive_custom_led_state);
+}
+
+// キー入力処理などでトグル＆送信
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LED_TOG:
+        case TOGGLE_LAYER0_LED:
             if (record->event.pressed) {
                 g_use_custom_layer0_leds = !g_use_custom_layer0_leds;
+                send_custom_led_state();  // ← ここで送信
             }
             return false;
     }
