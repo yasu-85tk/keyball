@@ -70,23 +70,10 @@ void oledkit_render_info_user(void) {
 }
 #endif
 
-//追加したもの
-extern bool g_use_custom_layer0_leds; // keyball.cで定義しているのでここでは宣言だけする
-// カスタムLED処理をレイヤー0でも使うかどうかのフラグ（初期値 false）
-//bool g_use_custom_layer0_leds = true; // lib/keyball/keyball.cと重複のためコメントアウト
-// // __attribute__((weak)) bool get_split_led_status(void) {
-// //     return g_use_custom_layer0_leds;
-// // }
-
 // RGBLayer setting
 #include <string.h>  // memchr用
 
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
-    uint8_t layer = get_highest_layer(layer_state);
-    // レイヤー0かつカスタムLED表示が無効なら、アニメーションに処理を渡す
-    if (layer == 0 && !g_use_custom_layer0_leds) {
-        return false;
-    }
 
     // LEDグループ定義
     static const uint8_t layer1_leds_col1[] = {4, 6, 7, 11, 28, 30, 31, 48, 51, 54}; // カラー1　矢印・マウス
