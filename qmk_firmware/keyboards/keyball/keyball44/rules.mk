@@ -48,5 +48,4 @@ SPACE_CADET_ENABLE = no
 GRAVE_ESC_ENABLE = no
 MAGIC_ENABLE = no
 
-// 追加
 SRC += transactions.c
