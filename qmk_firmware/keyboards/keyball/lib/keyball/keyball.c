@@ -800,7 +800,7 @@ uint8_t mod_config(uint8_t mod) {
 #include "keyball.h"  // 必要なら自分のヘッダも
 
 // 共有したいグローバル変数
-bool g_use_custom_layer0_leds = false;
+bool g_use_custom_layer0_leds = true;
 
 // スレーブ側で受信したときの処理
 void receive_custom_led_state(uint8_t id, const void* data, uint8_t length, void* out) {
