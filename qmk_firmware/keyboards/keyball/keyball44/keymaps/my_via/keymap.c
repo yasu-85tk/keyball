@@ -73,7 +73,7 @@ void oledkit_render_info_user(void) {
 //追加したもの
 
 // カスタムLED処理をレイヤー0でも使うかどうかのフラグ（初期値 false）
-//bool g_use_custom_layer0_leds = true;
+//bool g_use_custom_layer0_leds = true; // lib/keyball/keyball.cと重複のためコメントアウト
 // // __attribute__((weak)) bool get_split_led_status(void) {
 // //     return g_use_custom_layer0_leds;
 // // }
