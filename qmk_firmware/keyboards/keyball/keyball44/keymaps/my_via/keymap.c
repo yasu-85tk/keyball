@@ -74,10 +74,9 @@ void oledkit_render_info_user(void) {
 
 // カスタムLED処理をレイヤー0でも使うかどうかのフラグ（初期値 false）
 bool g_use_custom_layer0_leds = true;
-__attribute__((weak)) bool get_split_led_status(void) {
-    return g_use_custom_layer0_leds;
-}
-
+// __attribute__((weak)) bool get_split_led_status(void) {
+//     return g_use_custom_layer0_leds;
+// }
 
 // RGBLayer setting
 #include <string.h>  // memchr用
