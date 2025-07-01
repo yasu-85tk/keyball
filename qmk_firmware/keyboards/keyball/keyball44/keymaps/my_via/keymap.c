@@ -169,3 +169,19 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
 
     return false;
 }
+
+#include "transactions.h"
+#include "split_util.h"  // is_keyboard_master()
+
+extern void receive_custom_led_state(uint8_t id, const void* data, uint8_t length, void* out);
+extern void send_custom_led_state(void);
+
+void keyboard_post_init_user(void) {
+    // スレーブでもマスターでもRPC受信登録
+    transaction_register_rpc(0x01, receive_custom_led_state);
+
+    // マスターだけが初期状態をスレーブに送信
+    if (is_keyboard_master()) {
+        send_custom_led_state();
+    }
+}
