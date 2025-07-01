@@ -70,11 +70,18 @@ void oledkit_render_info_user(void) {
 }
 #endif
 
-
+//追加したもの
 // RGBLayer setting
 #include <string.h>  // memchr用
 
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+    uint8_t layer = get_highest_layer(layer_state);
+    // レイヤー0かつカスタムLED表示が無効なら、アニメーションに処理を渡す
+    if (layer == 0 && !g_use_custom_layer0_leds) {
+        return false;
+    }
+
+    // LEDグループ定義
     static const uint8_t layer1_leds_col1[] = {4, 6, 7, 11, 28, 30, 31, 48, 51, 54}; // カラー1　矢印・マウス
     static const uint8_t layer1_leds_col2[]   = {5, 8, 14, 15, 16, 44, 45, 57, 58}; // カラー2　ブラウザ操作系
     static const uint8_t layer1_leds_col3[]   = {10, 40, 46, 47, 50, 53, 56}; // カラー3　マウス数値関連とF2・FN
@@ -88,8 +95,6 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     static const uint8_t layer3_leds_col2[]  = {1, 2, 4, 5, 43, 44, 56, 57}; // カラー2 記号
     static const uint8_t layer3_leds_col3[]  = {0, 3, 6}; // カラー3 Audio vol
     static const uint8_t layer3_leds_col4[]  = {10, 14, 17}; // カラー4　RGB Toggle
-
-    uint8_t layer = get_highest_layer(layer_state);
 
     for (uint8_t i = led_min; i < led_max; i++) {
         bool colored = false;
