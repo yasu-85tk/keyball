@@ -818,6 +818,7 @@ void send_custom_led_state(void) {
 // RPC受信処理の登録
 void keyboard_post_init_user(void) {
     transaction_register_rpc(0x01, receive_custom_led_state);
+    send_custom_led_state();
 }
 
 // キー入力処理などでトグル＆送信
@@ -837,9 +838,4 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
     }
     return true;
-}
-
-void keyboard_post_init_user(void) {
-    transaction_register_rpc(0x01, receive_custom_led_state);
-    send_custom_led_state();
 }
