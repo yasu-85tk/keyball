@@ -822,7 +822,7 @@ void keyboard_post_init_user(void) {
 // キー入力処理などでトグル＆送信
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case TOGGLE_LAYER0_LED:
+        case LED_TOG:
             if (record->event.pressed) {
                 g_use_custom_layer0_leds = !g_use_custom_layer0_leds;
                 send_custom_led_state();  // ← ここで送信
