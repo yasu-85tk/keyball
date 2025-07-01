@@ -1,3 +1,5 @@
 OLED_ENABLE = yes
 
 VIA_ENABLE = yes
+
+SPLIT_TRANSPORT_MIRROR = yes
