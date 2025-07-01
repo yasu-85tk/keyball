@@ -74,6 +74,7 @@ void oledkit_render_info_user(void) {
 #include <string.h>  // memchr用
 
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+  uint8_t layer = get_highest_layer(layer_state);
 
     // LEDグループ定義
     static const uint8_t layer1_leds_col1[] = {4, 6, 7, 11, 28, 30, 31, 48, 51, 54}; // カラー1　矢印・マウス
