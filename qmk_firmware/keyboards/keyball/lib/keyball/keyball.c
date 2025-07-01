@@ -797,11 +797,6 @@ uint8_t mod_config(uint8_t mod) {
 // }
 
 // スレーブ側にLED情報を飛ばすための追記
-void keyboard_post_init_user(void) {
-    transaction_register_rpc(0x01, receive_custom_led_state);
-    send_custom_led_state();
-}
-
 #include "transactions.h"
 #include "keyball.h"  // 必要なら自分のヘッダも
 
@@ -842,4 +837,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
     }
     return true;
+}
+
+void keyboard_post_init_user(void) {
+    transaction_register_rpc(0x01, receive_custom_led_state);
+    send_custom_led_state();
 }
