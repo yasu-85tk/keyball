@@ -91,7 +91,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     static const uint8_t layer3_leds_col3[]  = {0, 3, 6}; // カラー3 Audio vol
     static const uint8_t layer3_leds_col4[]  = {10, 14, 17}; // カラー4　RGB Toggle
 
-    // LED番号27,28,29,30,31は親指キーのため、ケースに入れる際は消灯推奨。keyball44.hのflagも併せて修正すること。
+    // LED番号27,28,29,30,31は親指キーのため、ケースに入れる際は消灯推奨。keyball44.cのflagも併せて修正すること。
 
     for (uint8_t i = led_min; i < led_max; i++) {
         bool colored = false;
