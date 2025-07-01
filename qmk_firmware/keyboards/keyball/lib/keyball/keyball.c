@@ -803,15 +803,15 @@ uint8_t mod_config(uint8_t mod) {
 bool g_use_custom_layer0_leds = false;
 
 // スレーブ側で受信したときの処理
-void receive_custom_led_state(const void* data, uint8_t length) {
-    if (length == sizeof(bool)) {
-        g_use_custom_layer0_leds = *(bool*)data;
+void receive_custom_led_state(uint8_t id, const void* data, uint8_t length, void* out) {
+    if (length == sizeof(g_use_custom_layer0_leds)) {
+        memcpy(&g_use_custom_layer0_leds, data, length);
     }
 }
 
 // 状態をスレーブ側に送信
 void send_custom_led_state(void) {
-    transaction_rpc_send(0x01, &g_use_custom_layer0_leds, sizeof(g_use_custom_layer0_leds));
+    transaction_rpc_send(0x01, sizeof(g_use_custom_layer0_leds), &g_use_custom_layer0_leds);
 }
 
 // RPC受信処理の登録
