@@ -71,6 +71,10 @@ void oledkit_render_info_user(void) {
 #endif
 
 //追加したもの
+
+// カスタムLED処理をレイヤー0でも使うかどうかのフラグ（初期値 false）
+bool g_use_custom_layer0_leds = false;
+
 // RGBLayer setting
 #include <string.h>  // memchr用
 
