@@ -816,10 +816,10 @@ void send_custom_led_state(void) {
 }
 
 // RPC受信処理の登録
-void keyboard_post_init_user(void) {
-    transaction_register_rpc(0x01, receive_custom_led_state);
-    send_custom_led_state();
-}
+// void keyboard_post_init_user(void) {
+//     transaction_register_rpc(0x01, receive_custom_led_state);
+//     send_custom_led_state();
+// }
 
 // キー入力処理などでトグル＆送信
 #include "split_util.h"  // is_keyboard_master() を使うのに必要！
