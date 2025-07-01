@@ -71,7 +71,7 @@ void oledkit_render_info_user(void) {
 #endif
 
 //追加したもの
-
+extern bool g_use_custom_layer0_leds; // keyball.cで定義しているのでここでは宣言だけする
 // カスタムLED処理をレイヤー0でも使うかどうかのフラグ（初期値 false）
 //bool g_use_custom_layer0_leds = true; // lib/keyball/keyball.cと重複のためコメントアウト
 // // __attribute__((weak)) bool get_split_led_status(void) {
