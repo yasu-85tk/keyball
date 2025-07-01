@@ -783,6 +783,7 @@ uint8_t mod_config(uint8_t mod) {
 // 追加したカスタムキーLED_TOGに関する定義
 
 // bool g_use_custom_layer0_leds = true; // true=ONだと自作LED処理が有効 // keymap.cと重複のためコメントアウト
+extern bool g_use_custom_layer0_leds; //ひとつ上コードの代わりに、宣言だけを行い、外部に定義がある変数であることを示す
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
