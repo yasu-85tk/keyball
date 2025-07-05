@@ -779,18 +779,3 @@ uint8_t mod_config(uint8_t mod) {
 }
 
 #endif
-
-// 250705追加
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case LED_TOG:
-            if (record->event.pressed) {
-                // ここで LED の ON/OFF をトグル
-                led_custom_enabled = !led_custom_enabled;
-                sync_led_custom_state();  // ← スレーブ側にも送るならこれも必要
-            }
-            return false;
-    }
-    return true;
-}
